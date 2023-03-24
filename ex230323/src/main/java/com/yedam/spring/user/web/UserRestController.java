@@ -19,7 +19,8 @@ import com.yedam.spring.user.service.UserVO;
 
 @CrossOrigin
 //데이터를 반환하는 컨트롤러
-@RestController
+//@RestController : @Controller(기존 컨트롤러) + @ResponseBody => 해당 클래스 내의 모든 컨트롤러는 객체를 반환
+@RestController 
 public class UserRestController {
 	
 	@RequestMapping(value="/insertUser", method=RequestMethod.POST)
@@ -85,4 +86,16 @@ public class UserRestController {
 	public UserVO getInfo(@RequestBody UserVO userVO) {
 		return userVO;
 	}
+	
+	@RequestMapping("/upload")
+	public String uploadFile(UserVO userVO) {
+		System.out.println("name : " + userVO.getName());
+		System.out.println("file : " + userVO.getPic().getOriginalFilename());
+		return "업로드를 완료했습니다.";
+	}
 }
+
+
+
+
+

@@ -3,6 +3,7 @@ package com.yedam.spring.user.service;
 import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.multipart.MultipartFile;
 
 import lombok.Data;
 
@@ -14,5 +15,7 @@ public class UserVO {
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	//DateTimeFormat -> 입력받을 때 형식 정하는거, 출력과는 상관없다
 	private Date today;
+	
+	private MultipartFile pic;
 	
 }
