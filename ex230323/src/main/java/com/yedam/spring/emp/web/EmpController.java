@@ -1,10 +1,14 @@
 package com.yedam.spring.emp.web;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.yedam.spring.emp.service.EmpService;
@@ -57,4 +61,15 @@ public class EmpController {
 		
 		return "redirect:empList";
 	}
+	
+	//수정 - Process 
+	// 1) Client - JSON -> Server
+	// 2) Server - text -> Client
+	@PostMapping("/empUpdate")
+	@ResponseBody
+	public Map<String, String> empUpdateProcess(@RequestBody EmpVO empVO) {
+		return empService.updateEmp(empVO);
+	}
+
+
 }

@@ -6,9 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>상세조회</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 </head>
 <body>
-	<form action="" method="post">
+	<form action="empUpdate" method="post" onSubmit="return false"> <!-- 조회 제외하고 다 post  -->
 		<div>
 			<label>id : <input type="number" name="employeeId" value="${empInfo.employeeId}" readonly></label> 
 		</div>
@@ -45,5 +46,27 @@
 		<button type="submit">수정</button>
 		<button type="button">취소</button>
 	</form>
+	
+	<script>
+		fetch('empUpdate', {
+			method: 'post',
+			header: {
+				'Content-Type' : 'application/json'
+			},
+			body : convertData();
+		})
+		.then(response => reponse.json())
+		.then(data => console.log(data))
+		.catch(reject => console.log(reject));
+		
+		function convertData(){
+			let selectForm = documents.querySelector('form');
+			
+			let formData = new FormData(selectForm);
+			
+			
+		}
+	
+	</script>
 </body>
 </html>
