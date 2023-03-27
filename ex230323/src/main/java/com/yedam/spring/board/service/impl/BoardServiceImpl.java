@@ -2,49 +2,64 @@ package com.yedam.spring.board.service.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.yedam.spring.board.mapper.BoardMapper;
 import com.yedam.spring.board.service.BoardService;
 import com.yedam.spring.board.service.BoardVO;
 
 public class BoardServiceImpl implements BoardService{
 
+	@Autowired
+	BoardMapper boardMapper;
+	
 	//전체조회
 	@Override
 	public List<BoardVO> getBoardList() {
-		// TODO Auto-generated method stub
-		return null;
+		return boardMapper.selectBoardList();
 	}
 
 	//단건조회
 	@Override
 	public BoardVO getBoardInfo(BoardVO boardVO) {
-		// TODO Auto-generated method stub
-		return null;
+		return boardMapper.selectBoardInfo(boardVO);
 	}
 
 	//입력 될 게시글 번호 조회
 	@Override
 	public BoardVO getBoardNO() {
-		// TODO Auto-generated method stub
-		return null;
+		return boardMapper.getBoardNO();
 	}
 
 	//등록
 	@Override
 	public int insertBoardInfo(BoardVO boardVO) {
-		// TODO Auto-generated method stub
-		return 0;
+		int result = boardMapper.insertBoard(boardVO);
+		if(result == 1) {
+			return boardVO.getBno();
+		} else {
+			return -1;
+		}
 	}
 	//수정
 	@Override
 	public int updateBoardInfo(BoardVO boardVO) {
-		// TODO Auto-generated method stub
-		return 0;
+		int result = boardMapper.updateBoard(boardVO);
+		if(result == 1) {
+			return boardVO.getBno();
+		} else {
+			return -1;
+		}
 	}
 	//삭제
 	@Override
 	public int deleteBoardInfo(int boardVO) {
-		// TODO Auto-generated method stub
-		return 0;
+		int result = boardMapper.deleteBoard(boardVO);
+		if(result == 1) {
+			return boardVO;
+		} else {
+			return -1;
+		}
 	}
 	
 	
