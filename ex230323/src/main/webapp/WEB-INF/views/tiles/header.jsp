@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <nav>
 	<ul class="nav">
-		<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath }/empList">전체조회</a></li>
-		<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath }/empInsert">등록</a></li>
+		<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath }/getBoardList">게시판</a></li>
+		<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath }/boardInsert">게시글등록</a></li>
 	</ul>
 </nav>

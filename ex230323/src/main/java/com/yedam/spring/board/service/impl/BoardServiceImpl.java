@@ -3,11 +3,14 @@ package com.yedam.spring.board.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.yedam.spring.board.mapper.BoardMapper;
 import com.yedam.spring.board.service.BoardService;
 import com.yedam.spring.board.service.BoardVO;
 
+//빈으로 등록되는 대상
+@Service
 public class BoardServiceImpl implements BoardService{
 
 	@Autowired
@@ -25,7 +28,7 @@ public class BoardServiceImpl implements BoardService{
 		return boardMapper.selectBoardInfo(boardVO);
 	}
 
-	//입력 될 게시글 번호 조회
+	//등록 될 게시글 번호 조회
 	@Override
 	public BoardVO getBoardNO() {
 		return boardMapper.getBoardNO();
@@ -41,6 +44,7 @@ public class BoardServiceImpl implements BoardService{
 			return -1;
 		}
 	}
+	
 	//수정
 	@Override
 	public int updateBoardInfo(BoardVO boardVO) {
@@ -51,6 +55,7 @@ public class BoardServiceImpl implements BoardService{
 			return -1;
 		}
 	}
+	
 	//삭제
 	@Override
 	public int deleteBoardInfo(int boardVO) {
@@ -61,7 +66,4 @@ public class BoardServiceImpl implements BoardService{
 			return -1;
 		}
 	}
-	
-	
-	
 }

@@ -7,6 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import lombok.Data;
 
+
 @Data
 public class UserVO {	
 	private String name;
@@ -16,6 +17,6 @@ public class UserVO {
 	//DateTimeFormat -> 입력받을 때 형식 정하는거, 출력과는 상관없다
 	private Date today;
 	
-	private MultipartFile pic;
+	private MultipartFile[] pic;
 	
 }

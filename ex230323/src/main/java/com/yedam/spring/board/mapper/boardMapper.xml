@@ -60,6 +60,7 @@
 			VALUES (
 				   #{bno}
 				  ,#{title}
+				  ,#{contents}
 			      ,#{writer}
 			      <if test="regdate != null">
 			      ,#{regdate}
@@ -76,19 +77,19 @@
 		UPDATE board
 		<set>
 			<if test="title != null and !title.equals('')">
-			title = #{title}
+			title = #{title},
 			</if>
 			<if test="contents != null and !contents.equals('')">
-			contents = #{contents}
+			contents = #{contents},
 			</if>
-			<if test="img != null and !img.equals('')">
-			img = #{img}
+			<if test="image != null and !image.equals('')">
+			image = #{image},
 			</if>
 			<if test="updatedate != null">
-			updatedate = #{updatedate}
+			updatedate = #{updatedate},
 			</if>
 			<if test="updatedate==null">
-			updatedate = sysdate
+			updatedate = sysdate,
 			</if>
 		</set>
 		WHERE bno = #{bno}
