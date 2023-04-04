@@ -13,33 +13,41 @@
 	</div>
 	<table>
 		<tr>
-			<th>번호</th>
-			<td><input type="number" name="bno" value=${boardInfo.bno} readonly></td>
+			<th>도서번호</th>
+			<td><input type="number" name="bookNo" value=${boardInfo.bno} readonly></td>
 		</tr>
 		<tr>
-			<th>제목</th> 
-			<td><input type="text" name="title"/></td>
+			<th>도서명</th> 
+			<td><input type="text" name="bookName"/></td>
 		</tr>
 		<tr>
-			<th>작성자</th>
-			<td><input type="text" name="writer"/></td>
+			<th>도서표지</th>
+			<td><input type="text" name="bookCovering"/></td>
 		</tr>
 		<tr>
-			<th>내용</th>
-			<td><textarea name="contents"></textarea></td>
+			<th>출판일자</th>
+			<td><input type="text" name="bookDate"/></td>
 		</tr>
 		<tr>
-			<th>첨부이미지<th>
-			<td><input type="text" name="image"/></td>
+			<th>금액<th>
+			<td><input type="number" name="bookPrice"/></td>
+		</tr>
+		<tr>
+			<th>출판사<th>
+			<td><input type="text" name="bookPublisher"/></td>
+		</tr>
+		<tr>
+			<th>도서소개<th>
+			<td><textarea name="bookInfo"></textarea></td>
 		</tr>
 		</table>
 		<button type="submit">등록</button>
-		<button type="button" onclick="location.href='getBoardList'">목록</button>
+		<button type="button" onclick="location.href='http://localhost:8081/java/'">조회</button>
 	</form>
 	
 	<script>
 		function formOptionChk(){
-			let title = document.getElementsByName('title')[0];
+			let bookName = document.getElementsByName('bookName')[0];
 			let writer = document.getElementsByName('writer')[0];
 			let contents = document.getElementsByName('contents')[0];
 			
